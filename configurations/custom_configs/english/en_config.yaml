@@ -1,0 +1,15 @@
+# @package _global_
+
+# -------------------------------------------------- #
+# Configuration File for English Language ---------- #
+# -------------------------------------------------- #
+
+
+# -------------------------------------------------- #
+# Network Settings --------------------------------- #
+# -------------------------------------------------- #
+WhisperModel:
+  transcribe:
+    # The language spoken in the audio. 
+    # If not set, the language will be detected in the first 30 seconds of audio.
+    language: "en"
