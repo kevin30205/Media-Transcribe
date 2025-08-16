@@ -26,3 +26,12 @@ hydra:
       file:
         filename: ${hydra:runtime.output_dir}/${hydra:job.name}.log  # define the path to the log file
 
+
+# -------------------------------------------------- #
+# Experiment Settings ------------------------------ #
+# -------------------------------------------------- #
+exp_setting:
+  filename: "sample.mp3"
+  exp_dir: "output_results/${exp_setting.filename}"
+  log_file: ${hydra:runtime.output_dir}/${hydra:job.name}.log
+
