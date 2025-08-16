@@ -66,3 +66,6 @@ class Logger(object):
 
     def debug(self, message):
         self.log_message("debug", message)
+
+    def success(self, message):
+        self.log_message("success", message)
