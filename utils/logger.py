@@ -63,3 +63,6 @@ class Logger(object):
 
     def trace(self, message):
         self.log_message("trace", message)
+
+    def debug(self, message):
+        self.log_message("debug", message)
