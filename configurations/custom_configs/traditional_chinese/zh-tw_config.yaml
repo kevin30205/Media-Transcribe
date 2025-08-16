@@ -1,0 +1,17 @@
+# @package _global_
+
+# -------------------------------------------------------- #
+# Configuration File for Traditional Chinese Language ---- #
+# -------------------------------------------------------- #
+
+
+# -------------------------------------------------------- #
+# Network Settings --------------------------------------- #
+# -------------------------------------------------------- #
+WhisperModel:
+  transcribe:
+    # The language spoken in the audio. 
+    # If not set, the language will be detected in the first 30 seconds of audio.
+    language: "zh"
+    # Optional text string or iterable of token ids to provide as a prompt for the first window.
+    initial_prompt: "請使用繁體中文進行轉錄。"
