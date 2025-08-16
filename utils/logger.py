@@ -81,3 +81,6 @@ class Logger(object):
 
     def exception(self, message):
         self.log_message("exception", message)
+
+    def complete(self):
+        logger.complete()
