@@ -78,3 +78,6 @@ class Logger(object):
 
     def critical(self, message):
         self.log_message("critical", message)
+
+    def exception(self, message):
+        self.log_message("exception", message)
