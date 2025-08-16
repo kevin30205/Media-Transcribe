@@ -57,3 +57,6 @@ class Logger(object):
         message = location + message
 
         getattr(logger, level)(message)
+
+    def info(self, message):
+        self.log_message("info", message)
