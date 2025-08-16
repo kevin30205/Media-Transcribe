@@ -72,3 +72,6 @@ class Logger(object):
 
     def warning(self, message):
         self.log_message("warning", message)
+
+    def error(self, message):
+        self.log_message("error", message)
