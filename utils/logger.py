@@ -45,3 +45,15 @@ class Logger(object):
 
         # create a logger
         logger.add(logger_path, level=self.level, format="{time:YYYY-MM-DD at HH:mm:ss} | {level} | {file}:{function}:{line} | {message}")
+
+    def log_message(self, level, message):
+
+        frame = inspect.currentframe().f_back.f_back
+
+        relative_path = os.path.relpath(frame.f_code.co_filename)
+
+        location = f"{relative_path}:{frame.f_code.co_name}:{frame.f_lineno} | "
+
+        message = location + message
+
+        getattr(logger, level)(message)
