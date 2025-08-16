@@ -71,3 +71,6 @@ def run(configs: DictConfig) -> None:
             # flush the buffer to ensure that the data is written to the file
             srt_file.flush()
 
+
+if __name__ == "__main__":
+    run()
