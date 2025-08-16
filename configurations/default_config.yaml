@@ -35,3 +35,109 @@ exp_setting:
   exp_dir: "output_results/${exp_setting.filename}"
   log_file: ${hydra:runtime.output_dir}/${hydra:job.name}.log
 
+
+# -------------------------------------------------- #
+# Network Settings --------------------------------- #
+# -------------------------------------------------- #
+WhisperModel:
+  init:
+    # (tiny, tiny.en, base, base.en, small, small.en, distil-small.en, medium, medium.en, distil-medium.en, 
+    # large-v1, large-v2, large-v3, large, distil-large-v2, distil-large-v3, large-v3-turbo, or turbo)
+    model_size_or_path: "large-v3"
+    # ("cpu", "cuda", "auto")
+    device: "cpu"
+    # Device ID to use. e.g., 0 for single GPU; [0, 1, 2, 3] for multiple GPUs
+    device_index: 0
+    # Type to use for computation 
+    # (default, auto, int8, int8_float32, int8_float16, int8_bfloat16, int16, float16, float32, bfloat16)
+    compute_type: "auto"
+    # Number of threads to use when running on CPU
+    cpu_threads: 4
+    num_workers: 1
+    # Directory where the models should be saved.
+    download_root:
+    # If True, avoid downloading the file and return the path to the local cached file if it exists.
+    local_files_only: False
+    # Load model files from the memory.
+    files:
+  transcribe:
+    # Path to the input file.
+    audio: "./data/${exp_setting.filename}"
+    # The language spoken in the audio. 
+    # If not set, the language will be detected in the first 30 seconds of audio.
+    language:
+    # Task to execute (transcribe or translate).
+    task: "transcribe"
+    # whether to show progress bar or not.
+    log_progress: False
+    # Beam size to use for decoding. (Usually 1-10), larger is slower but more accurate.
+    beam_size: 5
+    # Number of candidates when sampling with non-zero temperature.
+    best_of: 5
+    # Beam search patience factor.
+    patience: 1.0
+    # Exponential length penalty constant.
+    length_penalty: 1.0
+    # Penalty applied to the score of previously generated tokens (set > 1 to penalize).
+    repetition_penalty: 1.0
+    # Prevent repetitions of ngrams with this size (set 0 to disable).
+    no_repeat_ngram_size: 0
+    # Temperature for sampling. It can be a tuple of temperatures,
+    # which will be successively used upon failures according to either
+    # `compression_ratio_threshold` or `log_prob_threshold`.
+    # Note: If the input is a list, then it need further conversion from listConfig to list.
+    # temperature: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+    # If the gzip compression ratio is above this value, treat as failed.
+    compression_ratio_threshold: 2.4
+    # If the average log probability over sampled tokens is below this value, treat as failed.
+    log_prob_threshold: -1.0
+    # If the no_speech probability is higher than this value AND
+    # the average log probability over sampled tokens is below `log_prob_threshold`,
+    # consider the segment as silent.
+    no_speech_threshold: 0.6
+    # If True, the previous output of the model is provided as a prompt for the next window;
+    # disabling may make the text inconsistent across windows, but the model becomes less prone
+    # to getting stuck in a failure loop, such as repetition looping or timestamps going out of sync.
+    condition_on_previous_text: True
+    # Resets prompt if temperature is above this value.
+    # Arg has effect only if condition_on_previous_text is True.
+    prompt_reset_on_temperature: 0.5
+    # Optional text string or iterable of token ids to provide as a prompt for the first window.
+    initial_prompt:
+    # Optional text to provide as a prefix for the first window.
+    prefix:
+    # Suppress blank outputs at the beginning of the sampling.
+    suppress_blank: True
+    # List of token IDs to suppress. -1 will suppress a default set of symbols as defined in `tokenizer.non_speech_tokens()`.
+    suppress_tokens: [-1]
+    # Only sample text tokens.
+    without_timestamps: False
+    # The initial timestamp cannot be later than this.
+    max_initial_timestamp: 1.0
+    # Extract word-level timestamps using the cross-attention pattern and dynamic time warping,
+    # and include the timestamps for each word in each segment.
+    word_timestamps: False
+    # If word_timestamps is True, merge these punctuation symbols with the next word.
+    prepend_punctuations: "\"'“¿([{-"
+    # If word_timestamps is True, merge these punctuation symbols with the previous word.
+    append_punctuations: "\"'.。,，!！?？:：”)]}、"
+    # Perform language detection on every segment.
+    multilingual: False
+    # Enable the voice activity detection (VAD) to filter out parts of the audio.
+    vad_filter: False
+    # Optional VAD parameters.
+    vad_parameters:
+    # Maximum number of new tokens to generate.
+    max_new_tokens: 
+    # Length of each chunk for processing.
+    chunk_length:
+    # Timestamps for clipping.
+    clip_timestamps: "0"
+    # Threshold for hallucination silence.
+    hallucination_silence_threshold:
+    # Hotwords to bias the transcription.
+    hotwords:
+    # Threshold for language detection.
+    language_detection_threshold: 0.5
+    # Number of segments for language detection.
+    language_detection_segments: 1
