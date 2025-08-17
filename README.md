@@ -49,3 +49,24 @@ Media-Transcribe/
 ```
 
 ---
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.10 or newer
+- Conda (recommended for environment management)
+
+### Installation
+
+```bash
+# conda environment
+conda create --name Media-Transcribe python=3.10.0 -y
+conda activate Media-Transcribe
+
+# required packages
+pip install faster-whisper
+conda install -c conda-forge hydra-core -y
+conda install -c conda-forge loguru -y
+```
+
