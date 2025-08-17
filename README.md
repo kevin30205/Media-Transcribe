@@ -104,4 +104,22 @@ python run.py exp_setting.filename="audio.mp3" custom_configs=english/en_config
 
 * For more configuration options, please refer to `configurations/default_config.yaml`.
 
+### Example Output (SRT)
+
+After running the transcription, you will get an SRT file similar to the following:
+
+```srt
+1
+00:00:01,000 --> 00:00:04,500
+Hello, welcome to Media Transcribe.
+
+2
+00:00:05,000 --> 00:00:08,200
+This is an example of automatic speech-to-text transcription.
+
+3
+00:00:09,000 --> 00:00:12,000
+Enjoy using the tool!
+```
+
 ---
