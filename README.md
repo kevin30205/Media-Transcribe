@@ -70,3 +70,11 @@ conda install -c conda-forge hydra-core -y
 conda install -c conda-forge loguru -y
 ```
 
+You may also run the bash script for installation:
+```bash
+bash scripts/environment_setup.sh
+```
+
+---
+
+
