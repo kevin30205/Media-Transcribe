@@ -22,5 +22,30 @@
 - **omegaconf** (YAML config parsing)
 - **loguru** (logging)
 
+---
+
+## Project Architecture
+
+```text
+Media-Transcribe/
+├── data/                              # Place your input audio files here
+├── output_results/                    # Transcription outputs
+├── configurations/                    # YAML config files
+│   ├── custom_configs/
+│   │   ├── empty.yaml
+│   │   ├── english/
+│   │   │   └── en_config.yaml
+│   │   └── traditional_chinese/
+│   │       └── zh-tw_config.yaml
+│   └── default_config.yaml
+├── scripts/
+│   └── environment_setup.sh           # Environment setup scripts
+├── utils/                             # Utility modules
+│   ├── basic_utils.py
+│   └── logger.py
+├── LICENSE
+├── README.md
+└── run.py                             # Main entry point
+```
 
 ---
