@@ -123,3 +123,11 @@ Enjoy using the tool!
 ```
 
 ---
+
+## License
+
+This project is licensed under the terms of the [Apache License 2.0](LICENSE).
+
+Copyright © 2025 Wang, Shao-Ping
+
+---
