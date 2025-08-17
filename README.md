@@ -71,10 +71,37 @@ conda install -c conda-forge loguru -y
 ```
 
 You may also run the bash script for installation:
+
 ```bash
 bash scripts/environment_setup.sh
 ```
 
 ---
 
+## Usage
 
+1. Place your media file (e.g., `audio.mp3`) in the `./data` folder.
+2. Adjust configuration in `default_config.yaml` or use a custom YAML file.
+3. Run transcription with one of the following commands:
+
+```bash
+# Run with default configs
+python run.py
+
+# Modify specific config (e.g., filename)
+python run.py exp_setting.filename="audio.mp3"
+
+# Use custom config YAML file
+python run.py custom_configs=english/en_config
+
+# Combine custom filename and config
+python run.py exp_setting.filename="audio.mp3" custom_configs=english/en_config
+```
+
+* Any parameters specified in the command will overwrite the default configs.
+
+* Outputs will be saved in `./output_results`.
+
+* For more configuration options, please refer to `configurations/default_config.yaml`.
+
+---
